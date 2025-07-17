@@ -12,8 +12,18 @@ body{
 
 
 .container{
-    width: 26%;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
 }
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 95vw;
+    padding: 10px;
+  }
+}
+
 
 .card {
     border-radius: 50px;
