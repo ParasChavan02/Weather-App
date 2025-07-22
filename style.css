@@ -40,11 +40,11 @@ body{
     margin: 1rem 0;
 }
 
-img #icon{
+#icon{
     width: 20%;
 }
 
-h6 #weather{
+#weather{
     text-transform: capitalize;
 }
 
