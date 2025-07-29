@@ -1,3 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #343434;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90vw;
+  max-width: 28rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+#icon {
+  width: 5em;
+  height: 5em;
+  object-fit: contain;
+  margin-bottom: 0.5em;
+  box-sizing: border-box;
+}
+@media (max-width: 40em) {
+  .container {
+    max-width: 98vw;
+    padding: 1em;
+  }
+}
+
+.card {
+  border-radius: 3em;
+  background: #343434;
+  box-shadow: 0.5em 0.5em 1em #191b1b, -0.5em -0.5em 1em #595959;
+  padding: 2.5em 2em;
+  text-align: center;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+.card h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5em 0;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 1.5em 0;
+  text-transform: capitalize;
+}
+
+.card h3 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 0.5em 0 0 0;
+}
+#weather {
+  text-transform: capitalize;
+}
+
+button.refresh {
+  display: block;
+  width: 5em;
+  height: 5em;
+  margin: 1.5em auto 0 auto;
+  background: transparent;
+  border: none;
+  color: #9c9c9d;
+  font-size: 2em;
+  border-radius: 50%;
+  box-shadow: 0.7em 0.3em 1em #252525, 0.5em 0.5em 1em #4a4a4a;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+button.refresh:hover {
+  box-shadow: inset 0.7em 0.3em 1em #252525, inset 0.5em 0.5em 1.2em #4a4a4a;
+}
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  font-size: 1.1rem;
+  margin-top: 1em;
+  justify-items: start;
+}
 body{
     margin: 0;
     padding: 0;
@@ -14,11 +118,23 @@ body{
 .container{
     width: 100%;
     max-width: 400px;
+}
+
+
+#icon {
+  width: 5em;
+  height: 5em;
+  object-fit: contain;
+  margin-bottom: 0.5em;
     box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
   .container {
+
+#weather {
+  text-transform: capitalize;
+}
     max-width: 95vw;
     padding: 10px;
   }
@@ -36,6 +152,47 @@ body{
 
 .card h4{
     font-size: 4rem;
+
+button.refresh {
+  display: block;
+  width: 5em;
+  height: 5em;
+  margin: 1.5em auto 0 auto;
+  background: transparent;
+  border: none;
+  color: #9c9c9d;
+  font-size: 2em;
+  border-radius: 50%;
+  box-shadow: 0.7em 0.3em 1em #252525, 0.5em 0.5em 1em #4a4a4a;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+button.refresh:hover {
+  box-shadow: inset 0.7em 0.3em 1em #252525, inset 0.5em 0.5em 1.2em #4a4a4a;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  font-size: 1.1rem;
+  margin-top: 1em;
+  justify-items: start;
+}
     font-weight: 400;
     margin: 1rem 0;
 }

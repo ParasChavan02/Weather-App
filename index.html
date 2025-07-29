@@ -10,60 +10,29 @@
 <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-   <div class="container">
-     <div class="card">
-          <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
-          <h6 id="weather"></h6>
-          <h4><span id="temp"></span><sup>o</sup>C</h4>
-          <img src="" id="icon">
-          <button onclick="window.location.reload()" class="refresh" title="Refresh"><i class="fa fa-refresh"></i></button>
-     </div>
-   </div> 
+  <main>
+    <section class="container">
+      <article class="card">
+        <header>
+          <h1><i class="fa fa-map-marker"></i> <span id="location"></span></h1>
+          <h2 id="weather"></h2>
+        </header>
+        <div class="weather-info">
+          <div class="weather-main">
+            <img src="" id="icon" alt="Weather icon">
+            <h3><span id="temp"></span><sup>o</sup>C</h3>
+          </div>
+          <dl class="weather-details">
+            <dt>Humidity:</dt>
+            <dd id="humidity"></dd>
+            <dt>Wind Speed:</dt>
+            <dd id="wind"></dd>
+          </dl>
+        </div>
+        <button id="refresh-btn" class="refresh" title="Refresh" type="button"><i class="fa fa-refresh"></i></button>
+      </article>
+    </section>
+  </main>
+  <script src="weather.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script>
-    // WARNING: Never expose your API key in client-side code for production use.
-    var link = "https://api.openweathermap.org/data/2.5/weather?q=pune&appid=eccd8cd00d770afbadfc543a9480673c";
-    var request = new XMLHttpRequest();
-    request.open('GET', link, true);
-    request.onload = function() {
-        try {
-            if (request.status >= 200 && request.status < 400) {
-                var obj = JSON.parse(this.response);
-                console.log(obj);
-                if (obj.cod && obj.cod !== 200) {
-                    document.getElementById('weather').innerHTML = 'Error: ' + (obj.message || 'Unable to fetch weather');
-                    document.getElementById('location').innerHTML = '';
-                    document.getElementById('temp').innerHTML = '';
-                    document.getElementById('icon').src = '';
-                } else {
-                    document.getElementById('weather').innerHTML = obj.weather[0].description;
-                    document.getElementById('location').innerHTML = obj.name;
-                    document.getElementById('temp').innerHTML = (obj.main.temp - 273.15).toFixed(1);
-                    document.getElementById('icon').src = "https://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
-                }
-            } else {
-                document.getElementById('weather').innerHTML = 'Network/API error: ' + request.status;
-                document.getElementById('location').innerHTML = '';
-                document.getElementById('temp').innerHTML = '';
-                document.getElementById('icon').src = '';
-                console.log('API error:', this.response);
-            }
-        } catch (e) {
-            document.getElementById('weather').innerHTML = 'Error parsing response';
-            document.getElementById('location').innerHTML = '';
-            document.getElementById('temp').innerHTML = '';
-            document.getElementById('icon').src = '';
-            console.error('Parsing error:', e, this.response);
-        }
-    }
-    request.onerror = function() {
-        document.getElementById('weather').innerHTML = 'Request failed (network error)';
-        document.getElementById('location').innerHTML = '';
-        document.getElementById('temp').innerHTML = '';
-        document.getElementById('icon').src = '';
-        console.error('Network error');
-    }
-    request.send();
-</script>
 </html>
